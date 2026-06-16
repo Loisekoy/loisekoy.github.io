@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校園脆友尋寶圖</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="專題導覽">
+      <a class="brand" href="#feed">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span>
+          <strong>校園脆友</strong>
+          <small>Treasure Map</small>
+        </span>
+      </a>
+
+      <nav class="nav-list" aria-label="主要區域">
+        <a href="#feed" class="nav-item is-current">
+          <span aria-hidden="true">⌂</span>
+          <span>脆文首頁</span>
+        </a>
+        <a href="#map" class="nav-item">
+          <span aria-hidden="true">⌖</span>
+          <span>校園地圖</span>
+        </a>
+        <a href="#googleMap" class="nav-item">
+          <span aria-hidden="true">◎</span>
+          <span>Google Map</span>
+        </a>
+        <a href="#capsule" class="nav-item">
+          <span aria-hidden="true">◷</span>
+          <span>時空膠囊</span>
+        </a>
+        <a href="#report" class="nav-item">
+          <span aria-hidden="true">▤</span>
+          <span>Demo 報告</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-note">
+        <strong>期末專題</strong>
+        <p>Threads 的即時短文感，加上校園地點尋寶與匿名共鳴。</p>
+      </div>
+    </aside>
+
+    <main id="feed" class="feed-column">
+      <header class="feed-header">
+        <div>
+          <p class="eyebrow">Threads-inspired campus demo</p>
+          <h1>校園脆友尋寶圖</h1>
+        </div>
+        <button id="showAllButton" class="icon-button" type="button" aria-label="顯示全部脆文" title="顯示全部">
+          ⟲
+        </button>
+      </header>
+
+      <section class="overview-panel" aria-labelledby="overviewTitle">
+        <div>
+          <p class="eyebrow">Project concept</p>
+          <h2 id="overviewTitle">把校園變成可以被「脆」探索的地圖</h2>
+          <p>
+            這個網站把 Threads 的真實短文文化套用到校園情境：同學可以依照地點查看即時情報、
+            留下匿名鼓勵、完成限時任務，並用 Google Maps 參考真實地理位置。
+          </p>
+        </div>
+        <div id="moodDashboard" class="mood-dashboard" aria-label="校園情緒儀表板"></div>
+      </section>
+
+      <section class="composer-panel" aria-labelledby="composerTitle">
+        <div class="section-heading">
+          <h2 id="composerTitle">新增校園脆文</h2>
+          <span>Demo 模擬發文</span>
+        </div>
+
+        <form id="composer" class="composer">
+          <div class="form-grid">
+            <label>
+              <span>暱稱</span>
+              <input id="authorInput" type="text" maxlength="18" placeholder="匿名脆友">
+            </label>
+            <label>
+              <span>地點</span>
+              <select id="locationSelect"></select>
+            </label>
+            <label>
+              <span>分類</span>
+              <select id="categorySelect"></select>
+            </label>
+          </div>
+
+          <label class="message-field">
+            <span>脆文內容</span>
+            <textarea id="contentInput" maxlength="120" rows="3" placeholder="例如：圖書館三樓靠窗還有座位，期末救援成功。"></textarea>
+          </label>
+
+          <div class="composer-actions">
+            <span>地圖熱點會同步更新</span>
+            <button type="submit">發布</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="filter-strip" aria-label="搜尋與分類篩選">
+        <label class="search-field">
+          <span>搜尋校園脆文</span>
+          <input id="searchInput" type="search" placeholder="搜尋地點、線索、情緒或貼文內容">
+        </label>
+        <div id="categoryFilters" class="chips"></div>
+      </section>
+
+      <section class="feed-list-section" aria-labelledby="feedTitle">
+        <div class="section-heading">
+          <div>
+            <h2 id="feedTitle">即時校園脆文</h2>
+            <p id="selectedLocationText">全校探索中</p>
+          </div>
+          <span id="feedCount">0 則</span>
+        </div>
+        <div id="feedList" class="feed-list"></div>
+      </section>
+    </main>
+
+    <aside class="map-column" aria-label="互動地圖與報告內容">
+      <section id="map" class="map-section" aria-labelledby="mapTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Campus hotspot radar</p>
+            <h2 id="mapTitle">校園地圖</h2>
+          </div>
+          <span>6 個熱點</span>
+        </div>
+
+        <div class="map-stage">
+          <img src="assets/campus-map.svg" alt="校園尋寶地圖，包含圖書館、學生餐廳、教學大樓、操場、宿舍與中庭花園">
+          <div id="mapPins" class="map-pins" aria-label="校園地圖熱點"></div>
+        </div>
+
+        <div class="spot-panel">
+          <div class="spot-kicker">目前熱點</div>
+          <h3 id="spotName">圖書館</h3>
+          <p id="spotTheme" class="spot-theme">安靜讀書</p>
+          <p id="spotDescription">考前最熱門的讀書與抱怨集中地。</p>
+          <div id="spotMeta" class="spot-meta"></div>
+          <div id="spotDetails" class="spot-details"></div>
+        </div>
+      </section>
+
+      <section class="mission-section" aria-labelledby="missionTitle">
+        <div class="section-heading">
+          <h2 id="missionTitle">限時尋寶任務</h2>
+          <span>任務卡</span>
+        </div>
+        <div class="progress-row" aria-label="任務完成進度">
+          <div class="progress-track">
+            <span id="missionProgressBar"></span>
+          </div>
+          <strong id="missionProgressText">0 / 6</strong>
+        </div>
+        <p id="missionText">找到三樓靠窗座位，留下今天最想對期末說的一句話。</p>
+      </section>
+
+      <section class="ranking-section" aria-labelledby="rankingTitle">
+        <div class="section-heading">
+          <h2 id="rankingTitle">今日熱門熱點</h2>
+          <span>依互動量排序</span>
+        </div>
+        <div id="leaderboardList" class="leaderboard-list"></div>
+      </section>
+
+      <section id="googleMap" class="google-map-section" aria-labelledby="googleMapTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Real map reference</p>
+            <h2 id="googleMapTitle">Google Maps 參考區</h2>
+          </div>
+          <span>iframe embed</span>
+        </div>
+        <div class="google-map-controls">
+          <label>
+            <span>地圖查詢</span>
+            <input id="googleMapQueryInput" type="text" value="台灣 科技大學 校園">
+          </label>
+          <button id="googleMapSearchButton" type="button">更新地圖</button>
+        </div>
+        <div class="google-map-frame">
+          <iframe
+            id="googleMapFrame"
+            title="Google Maps 校園參考地圖"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <a id="googleMapLink" class="external-map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E7%81%A3+%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%B8+%E6%A0%A1%E5%9C%92" target="_blank" rel="noreferrer">
+          在 Google Maps 開啟
+        </a>
+      </section>
+
+      <section id="capsule" class="capsule-section" aria-labelledby="capsuleTitle">
+        <div class="section-heading">
+          <h2 id="capsuleTitle">時空膠囊</h2>
+          <span>給未來的自己</span>
+        </div>
+        <ul id="capsuleList" class="capsule-list"></ul>
+      </section>
+
+      <section id="report" class="report-section" aria-labelledby="reportTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Demo outline</p>
+            <h2 id="reportTitle">報告重點</h2>
+          </div>
+          <span>15 分鐘版</span>
+        </div>
+
+        <ol class="report-list">
+          <li>
+            <strong>專題簡介及設計動機</strong>
+            <span>Threads 的核心是低壓、即時、真實的短文字互動；本專題把這種「脆」文化轉成校園地點探索。</span>
+          </li>
+          <li>
+            <strong>使用者痛點</strong>
+            <span>學生常不知道哪裡適合讀書、集合、吃飯或排練 Demo；一般地圖有位置，卻沒有同學當下的情緒與情報。</span>
+          </li>
+          <li>
+            <strong>網頁應用設計</strong>
+            <span>自製 SVG 校園圖負責尋寶互動；Google Maps iframe 負責真實地圖參考；JavaScript 資料陣列負責貼文、篩選、排行與統計。</span>
+          </li>
+          <li>
+            <strong>技術架構與流程</strong>
+            <span>使用者點熱點或搜尋關鍵字後，程式會更新狀態，重新計算 feed、熱點資訊、任務進度、情緒統計與 Google Maps 查詢。</span>
+          </li>
+          <li>
+            <strong>實際網站展示</strong>
+            <span>點地圖、切分類、搜尋「圖書館」、發布一則脆文、查看 Google Maps、熱門熱點、任務進度與時空膠囊。</span>
+          </li>
+          <li>
+            <strong>組員工作分配</strong>
+            <span>S11359001：50%，網站版面、互動流程、資料設計、測試與 Demo 整合。朱璧晨 S11359002：50%，主題資料整理、簡報內容協助、Demo 展示與口頭報告。</span>
+          </li>
+          <li>
+            <strong>評分標準對應</strong>
+            <span>創意實用性：校園脆友尋寶；技術困難性：狀態更新、搜尋、排序、Google Maps iframe；完整性：多區塊與測試；流暢性：可按 Demo 流程操作。</span>
+          </li>
+          <li>
+            <strong>參考資料與地圖說明</strong>
+            <span>Google Maps 以 iframe / Maps URL 作為真實地圖參考層；自製 SVG 地圖負責專題互動層，避免 Demo 依賴 API key。</span>
+          </li>
+          <li>
+            <strong>網站連結</strong>
+            <span>s11359001_final/index.html</span>
+          </li>
+        </ol>
+      </section>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

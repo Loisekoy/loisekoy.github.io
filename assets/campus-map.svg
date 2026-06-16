@@ -1,0 +1,46 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">校園脆友尋寶圖背景</title>
+  <desc id="desc">一張自製校園地圖，標出圖書館、學生餐廳、教學大樓、操場、宿舍與中庭花園。</desc>
+  <rect width="1200" height="800" rx="36" fill="#F5F4EE"/>
+  <path d="M84 145C235 73 413 90 536 151C667 215 783 205 939 137C1016 104 1101 101 1162 118V755H66V184C78 176 79 166 84 145Z" fill="#E3EFE3"/>
+  <path d="M126 646C238 578 346 575 453 617C602 675 755 643 869 566C951 510 1046 492 1141 529" stroke="#BED8C2" stroke-width="36" stroke-linecap="round"/>
+  <path d="M113 249H1086" stroke="#D9D6CC" stroke-width="28" stroke-linecap="round"/>
+  <path d="M143 499H996" stroke="#D9D6CC" stroke-width="24" stroke-linecap="round"/>
+  <path d="M376 132V704" stroke="#D9D6CC" stroke-width="24" stroke-linecap="round"/>
+  <path d="M719 130V703" stroke="#D9D6CC" stroke-width="24" stroke-linecap="round"/>
+
+  <rect x="214" y="184" width="205" height="138" rx="24" fill="#FDFDFB" stroke="#222222" stroke-width="8"/>
+  <rect x="235" y="209" width="52" height="88" rx="8" fill="#DCE8F8"/>
+  <rect x="304" y="209" width="52" height="88" rx="8" fill="#DCE8F8"/>
+  <rect x="373" y="209" width="26" height="88" rx="8" fill="#DCE8F8"/>
+  <text x="316" y="363" text-anchor="middle" fill="#111111" font-family="Arial, sans-serif" font-size="34" font-weight="700">圖書館</text>
+
+  <rect x="598" y="202" width="205" height="124" rx="24" fill="#FFF8E7" stroke="#222222" stroke-width="8"/>
+  <path d="M636 262H765" stroke="#D7A931" stroke-width="16" stroke-linecap="round"/>
+  <path d="M645 236H755" stroke="#D7A931" stroke-width="12" stroke-linecap="round"/>
+  <text x="700" y="367" text-anchor="middle" fill="#111111" font-family="Arial, sans-serif" font-size="34" font-weight="700">學生餐廳</text>
+
+  <rect x="423" y="474" width="232" height="142" rx="24" fill="#F4F7FF" stroke="#222222" stroke-width="8"/>
+  <rect x="455" y="508" width="50" height="54" rx="8" fill="#BFD1EE"/>
+  <rect x="524" y="508" width="50" height="54" rx="8" fill="#BFD1EE"/>
+  <rect x="593" y="508" width="30" height="54" rx="8" fill="#BFD1EE"/>
+  <text x="539" y="658" text-anchor="middle" fill="#111111" font-family="Arial, sans-serif" font-size="34" font-weight="700">教學大樓</text>
+
+  <ellipse cx="924" cy="462" rx="152" ry="95" fill="#E9F4EC" stroke="#222222" stroke-width="8"/>
+  <ellipse cx="924" cy="462" rx="102" ry="56" stroke="#91B999" stroke-width="16"/>
+  <text x="924" y="612" text-anchor="middle" fill="#111111" font-family="Arial, sans-serif" font-size="34" font-weight="700">操場</text>
+
+  <rect x="815" y="105" width="205" height="120" rx="24" fill="#FFF0EF" stroke="#222222" stroke-width="8"/>
+  <path d="M850 201V133H985V201" stroke="#D76A62" stroke-width="16" stroke-linejoin="round"/>
+  <text x="918" y="270" text-anchor="middle" fill="#111111" font-family="Arial, sans-serif" font-size="34" font-weight="700">宿舍</text>
+
+  <circle cx="230" cy="542" r="82" fill="#DDEED8" stroke="#222222" stroke-width="8"/>
+  <path d="M192 550C212 517 249 508 279 530" stroke="#6EA66E" stroke-width="18" stroke-linecap="round"/>
+  <path d="M183 580C225 597 267 584 295 552" stroke="#6EA66E" stroke-width="18" stroke-linecap="round"/>
+  <text x="230" y="682" text-anchor="middle" fill="#111111" font-family="Arial, sans-serif" font-size="34" font-weight="700">中庭花園</text>
+
+  <circle cx="96" cy="96" r="36" fill="#111111"/>
+  <path d="M82 97L96 82L110 97L96 112L82 97Z" fill="#FFFFFF"/>
+  <text x="148" y="106" fill="#111111" font-family="Arial, sans-serif" font-size="32" font-weight="700">Campus Threads Map</text>
+</svg>
+
