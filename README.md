@@ -42,5 +42,4 @@
 
 ---
 
-- 正式網站：<https://loisekoy.github.io/>
 - 遊戲網址：<https://loisekoy.github.io/learning-rpg-online/>
